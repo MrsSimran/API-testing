@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locate My geo-coordinate</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <style>
+    body {
+      background-color: aqua;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <p>Click the button to get your current location coordinates.</p>
+
+    <button onclick="getLocation()">Try It <i class="fa fa-map-marker"></i></button>
+
+    <p id="demo"></p>
+
+    <script>
+      const x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+          "<br>Longitude: " + position.coords.longitude;
+      }
+    </script>
+
+  </center>
+
+
+</body>
+
+</html>
