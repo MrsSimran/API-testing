@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API-handling error&rejection</title>
+    <style>
+        body {
+            background-color: aqua;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <p>Click to get geo-co-ordinate's</p>
+    <button on click="getLocation()">Locate Me</button>
+    <p id="demo"></p>
+    <script>
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition,
+                    showError);
+
+            } else {
+                x.innerHTML = "geolocation is not supported by this Broswer.";
+
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude:" + position.coords.longitude;
+        }
+
+        <!---error Handling-->
+
+        function showError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "user denied the requet for geolocation."
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = " Location information is unavailable."
+                    break;
+                case error.TIMEOUT:
+                    x.innerHTML = "the request to get user Location time-out."
+                    break;
+                case error.UNKNOWERROR:
+                    x.innerHTML = "Error unknow"
+                    break;
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
