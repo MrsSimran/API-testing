@@ -14,9 +14,11 @@
 </head>
 
 <body>
-    <p>Click to get geo-co-ordinate's</p>
-    <button on click="getLocation()">Locate Me</button>
-    <p id="demo"></p>
+    <center>
+        <p>Click to get geo-co-ordinate's</p>
+        <button on click="getLocation()"> Locate Me</button>
+        <p id="demo"></p>
+    </center>
     <script>
         const x = document.getElementById("demo");
 
@@ -35,9 +37,6 @@
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude:" + position.coords.longitude;
         }
-
-        <!---error Handling-->
-
         function showError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:
