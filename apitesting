@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request Example</title>
+</head>
+<body>
+
+<h1>API Request Example</h1>
+
+<button onclick="makeApiRequest()">Make API Request</button>
+
+<div id="apiResponse"></div>
+
+<script>
+    function makeApiRequest() {
+        // Replace the URL below with the actual API endpoint you want to call
+        const apiUrl = 'https://api.example.com/data';
+
+        // Make a GET request to the API endpoint
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Handle the API response data
+                document.getElementById('apiResponse').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('Error making API request:', error);
+                document.getElementById('apiResponse').innerText = 'Error making API request.';
+            });
+    }
+</script>
+
+</body>
+</html>
